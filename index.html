@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" type="text/css" href="assets/style/index.css">
+    <title>Dashboard</title>
+  </head>
+  <body>
+
+    <main class="display-box">
+        <section id="time">
+            <article>
+                <span id="hour">00</span>:
+                <span id="min">00</span>
+            </article>
+        </section>
+        <section id="weather">Two</section>
+        <section id="feeds">
+            <a href="https://google.com">internal link</a>
+            <p>hello world</p>
+            <p>more spacing</p>
+        </section>
+        <section id="bookmark"><a href="https://google.com" target="_blank">external link</a></section>
+    </main>
+    <!-- Adding Individual Renderer
+         Process JS File -->
+    <!--
+    <script src="assets/scripts/httpbin.js"></script>
+    <script src="assets/scripts/newsfeed.js"></script>
+    -->
+    <script src="assets/scripts/clock.js"></script>
+  </body>
+</html>
