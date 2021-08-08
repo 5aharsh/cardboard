@@ -1,14 +1,14 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, shell } = require("electron");
+const { app, BrowserWindow, shell, ipcMain } = require("electron");
 const path = require("path");
 
 function createWindow() {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1000,
+        height: 700,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -33,7 +33,6 @@ app.whenReady().then(() => {
 
     mainWindow.webContents.setWindowOpenHandler(({ url })=> {
         //e.preventDefault();
-        console.log("executing........."+url);
         shell.openExternal(url);
     });
 
@@ -43,8 +42,6 @@ app.whenReady().then(() => {
         if (BrowserWindow.getAllWindows().length === 0) {
             var mainWindow = createWindow();
             mainWindow.webContents.setWindowOpenHandler(function (url) {
-                //e.preventDefault();
-                console.log("executing......... 2");
                 shell.openExternal(url);
                 return { action: 'deny'}
             });

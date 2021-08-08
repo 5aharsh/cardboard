@@ -1,36 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" type="text/css" href="assets/style/index.css">
-    <title>Dashboard</title>
-  </head>
-  <body>
+    <title>Cardboard</title>
+</head>
 
+<body>
     <main class="display-box">
-        <section id="time">
-            <article>
-                <span id="hour">00</span>:
-                <span id="min">00</span>
+        <section id="greet">
+            <h1 class="greet">Hi, <b>Saharsh</b></h1>
+        </section>
+        <section id="date-time">
+            <article class="time">
+                <span id="hour">--</span>
+                <span id="sep">:</span>
+                <span id="min">-- --</span>
+            </article>
+            <article class="date">
+                <span id="weekday">--</span>
+                📅
+                <span id="day">--</span>
+                <span id="month">---</span>
             </article>
         </section>
-        <section id="weather">Two</section>
-        <section id="feeds">
-            <a href="https://google.com">internal link</a>
-            <p>hello world</p>
-            <p>more spacing</p>
+        <section id="search">
+            <section class="search">
+                <input type="text" name="q" class="search-text" id="search-txt" accesskey="s">
+                <a href="javascript:void(0)" id="search-link" target="_blank">
+                    <input type="button" value="Search" class="search-btn" id="search-btn">
+                </a>
+            </section>
+            <section class="search-engines">
+                <a href="javascript:void(0)" id="search-engines-ggl" name="google" class="selected" accesskey="g"></a>
+                <a href="javascript:void(0)" id="search-engines-dg" name="duckduckgo" accesskey="d"></a>
+                <a href="javascript:void(0)" id="search-engines-bng" name="bing" accesskey="b"></a>
+            </section>
         </section>
-        <section id="bookmark"><a href="https://google.com" target="_blank">external link</a></section>
+        <section id="bookmark">
+            <section class="link">
+                <a class="link-anchor" href="https://discord.com/channels/@me" target="_blank">Discord</a>
+            </section>
+            <section class="link">
+                <a class="link-anchor" href="https://github.com" target="_blank">GitHub</a>
+            </section>
+            <section class="link">
+                <a class="link-anchor" href="https://twitter.com" target="_blank">Twitter</a>
+            </section>
+            <section class="link">
+                <a class="link-anchor" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            </section>
+            <section class="link">
+                <a class="link-anchor" href="https://stackoverflow.com/" target="_blank">StackOverflow</a>
+            </section>
+        </section>
+        </section>
+        <section id="feeds">
+            <span>
+                Fetching some feeds... ☕
+            </span>
+        </section>
     </main>
     <!-- Adding Individual Renderer
          Process JS File -->
     <!--
     <script src="assets/scripts/httpbin.js"></script>
-    <script src="assets/scripts/newsfeed.js"></script>
     -->
-    <script src="assets/scripts/clock.js"></script>
-  </body>
+    <script src="./assets/scripts/newsfeed.js"></script>
+    <script src="./assets/scripts/search.js"></script>
+</body>
+
 </html>

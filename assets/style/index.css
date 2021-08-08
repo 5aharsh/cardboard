@@ -1,76 +1,265 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&display=swap");
 
-*{
+:root {
+    --bg: rgb(39, 34, 34);
+    --txt: rgb(250, 255, 255);
+    --pallets: rgba(54, 47, 47, 0.9);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 20px;
+}
+
+* {
     margin: 0px;
     padding: 0px;
     transition: 0.2s ease-in-out;
 }
 
 body {
-    background-color: rgb(39, 34, 34);
-    color: rgb(250, 255, 255);
-    font-family: 'Nunito', sans-serif;
+    background: url(../images/bg.jpg) var(--bg);
+    background-size: cover;
+    color: var(--txt);
+    font-family: "Nunito", sans-serif;
     font-weight: 600;
     width: 100vw;
-    height: 100vh;
-    display: flex;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
 }
 
-#time {
+a {
+    color: yellow;
+}
+
+#date-time {
     grid-area: time;
 }
 
-#time article{
+#date-time .time {
+    display: flex;
+    font-weight: 200;
+    font-size: 40px;
+    justify-content: center;
+}
+
+#date-time .time #sep {
+    display: block;
+    margin: 0 4px 0 2px;
+    font-weight: 600;
+}
+
+#date-time .date {
+    font-weight: 700;
+    font-size: 20px;
+}
+#greet {
+    background: none;
+    border: none;
+    grid-area: greet;
+    justify-content: left;
+    text-align: left;
+}
+
+#greet .greet {
+    font-weight: 200;
+    font-size: 40px;
+    margin: 0 10px;
+}
+
+#search {
+    grid-area: search;
+}
+
+#search section.search {
+    display: flex;
+    justify-content: center;
+    margin: 30px 30px auto 30px;
+}
+
+#search section.search input {
+    padding: 5px 10px;
+    color: white;
+    background: var(--bg);
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    outline: 0;
+    border-color: white;
+    border-style: solid;
+}
+
+#search section.search .search-text {
+    border-width: 3px 0px 3px 3px;
+    min-width: 200px;
+    width: 250px;
+    font-weight: 400;
+}
+
+#search section.search .search-text:focus {
+    background-color: white;
+    color: var(--bg);
+}
+
+#search section.search .search-btn {
+    border-width: 3px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#search section.search .search-btn:active {
+    border-width: 5px 5px 1px 1px;
+}
+
+#search section.search-engines {
     display: flex;
     justify-content: center;
 }
 
-#weather {
-    grid-area: weather;
+#search section.search-engines a {
+    display: block;
+    margin: 25px 5px 0px 5px;
+    position: abs;
+    height: 40px;
+    width: 40px;
+    background: yellow;
+    border: 3px solid rgb(54, 47, 47);
+    opacity: 0.5;
 }
+
+#search section.search-engines a:focus {
+    outline: none;
+    opacity: 1;
+}
+
+#search section.search-engines a:hover {
+    opacity: 1;
+}
+
+#search section.search-engines a.selected {
+    box-shadow: 0 0 0 3px white;
+    opacity: 1;
+}
+
+#search section.search-engines a#search-engines-ggl {
+    background: url(../images/ggl-icon.png) no-repeat white;
+    background-size: 30px 30px;
+    background-position: center;
+    border-radius: 50%;
+}
+
+#search section.search-engines a#search-engines-dg {
+    background: url(../images/ddg-icon.png) no-repeat white;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+#search section.search-engines a#search-engines-bng {
+    background: url(../images/bng-icon.png) no-repeat white;
+    background-size: 30px 30px;
+    background-position: center;
+    border-radius: 50%;
+}
+
 #feeds {
     grid-area: feeds;
-}
-#bookmark {
-    grid-area: bookmark;
+    height: 250px;
+    padding: 10px;
+    overflow-y: scroll;
 }
 
-#feeds > p {
-    display: flex;
+#feeds span {
+    display: block;
+    text-align: center;
     justify-content: center;
+    margin-top: 120px;
+    font-size: 20px;
+}
+
+#feeds .feed-news {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px auto;
+    display: grid;
+    grid-template-columns: 60px auto;
+}
+
+#feeds .feed-news .feed-date {
+    background: white;
+    padding: 10px;
+    color: var(--bg);
+    border-radius: 10px;
+}
+
+#feeds .feed-news .feed-headline {
+    display: grid;
+    text-align: left;
+    margin: auto auto auto 20px;
+}
+
+#bookmark {
+    grid-area: bookmark;
+    height: 250px;
+    padding: 10px;
+}
+
+#bookmark section.link {
+    margin: 10px 30px;
+    display: grid;
+    background-color: var(--bg);
+    padding: 5px 10px;
+}
+
+#bookmark section.link a.link-anchor {
+    display: flex;
+    text-align: left;
+    font-size: 18px;
+    text-decoration: none;
+    margin: auto 10px auto 10px;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 main {
     display: grid;
     grid-template-areas:
-        'time weather'
-        'feeds bookmark';
+        "greet greet"
+        "time search"
+        "bookmark feeds";
+    grid-template-columns: 2fr 5fr;
     grid-gap: 10px;
+    margin: 30px auto auto auto;
     padding: 10px;
-    width: 80vw;
+    width: 85vw;
 }
 
 main > section {
-    background-color: rgb(54, 47, 47);
+    background-color: var(--pallets);
     border-radius: 10px;
     text-align: center;
     padding: 20px 0;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-width: 350px;
 }
 
-
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     main {
         grid-template-areas:
-            'time' 
-            'weather'
-            'feeds'
-            'bookmark';
+            "greet"
+            "time"
+            "search"
+            "bookmark"
+            "feeds";
+        grid-template-columns: auto;
     }
-  }
+}
