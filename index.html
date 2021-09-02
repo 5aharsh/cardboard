@@ -11,7 +11,29 @@
 </head>
 
 <body>
-    <main class="display-box">
+    <main id="configure">
+        <nav id="nav">
+            <a href="#" class="nav-link false-anchor selected">General</a>
+            <a href="#" class="nav-link false-anchor">Bookmark</a>
+            <a href="#" class="nav-link false-anchor">Feeds</a>
+        </nav>
+        <section id="panel">
+            <h1><b>Configure</b></h1>
+            <article id="general" class="config">
+                <div class="label">
+                    <label for="greet-name">Name</label>
+                </div>
+                <div class="label-input">
+                    <input type="text" name="greet-name" id="greet-name">
+                </div>
+                <div class="label">Dark Mode</div>
+                <div class="label-input">
+                    <input type="checkbox" name="dark-mode" id="dark-mode">
+                </div>
+            </article>
+        </section>
+    </main>
+    <main id="display-box">
         <section id="greet">
             <h1 class="greet">Hi, <b>Saharsh</b></h1>
         </section>
@@ -31,14 +53,14 @@
         <section id="search">
             <section class="search">
                 <input type="text" name="q" class="search-text" id="search-txt" accesskey="s">
-                <a href="javascript:void(0)" id="search-link" target="_blank">
-                    <input type="button" value="Search" class="search-btn" id="search-btn">
+                <a href="#" id="search-link" class="false-anchor" target="_blank">
+                    <input type="button" value="Search" class="search-btn" id="search-btn" tabindex="-1">
                 </a>
             </section>
             <section class="search-engines">
-                <a href="javascript:void(0)" id="search-engines-ggl" name="google" class="selected" accesskey="g"></a>
-                <a href="javascript:void(0)" id="search-engines-dg" name="duckduckgo" accesskey="d"></a>
-                <a href="javascript:void(0)" id="search-engines-bng" name="bing" accesskey="b"></a>
+                <a href="#" id="search-engines-ggl" class="false-anchor" name="google" class="selected" accesskey="g"></a>
+                <a href="#" id="search-engines-dg" class="false-anchor" name="duckduckgo" accesskey="d"></a>
+                <a href="#" id="search-engines-bng" class="false-anchor" name="bing" accesskey="b"></a>
             </section>
         </section>
         <section id="bookmark">
@@ -70,6 +92,7 @@
     <!--
     <script src="assets/scripts/httpbin.js"></script>
     -->
+    <script src="./assets/scripts/configure.js"></script>
     <script src="./assets/scripts/newsfeed.js"></script>
     <script src="./assets/scripts/search.js"></script>
 </body>

@@ -26,7 +26,13 @@
     transition: 0.2s ease-in-out;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
+    height: 100%;
     background: url(../images/bg.jpg) var(--bg);
     background-size: cover;
     color: var(--txt);
@@ -40,6 +46,33 @@ body {
 
 a {
     color: yellow;
+}
+
+/*
+
+Main Display UI
+
+*/
+
+main#display-box {
+    display: none;
+    grid-template-areas:
+        "greet greet"
+        "time search"
+        "bookmark feeds";
+    grid-template-columns: 2fr 5fr;
+    grid-gap: 10px;
+    margin: 30px auto auto auto;
+    padding: 10px;
+    width: 85vw;
+}
+
+main#display-box > section {
+    background-color: var(--pallets);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 0;
+    min-width: 350px;
 }
 
 #date-time {
@@ -64,11 +97,11 @@ a {
     font-size: 20px;
 }
 #greet {
-    background: none;
+    background: none !important;
     border: none;
     grid-area: greet;
-    justify-content: left;
-    text-align: left;
+    justify-content: left !important;
+    text-align: left !important;
 }
 
 #greet .greet {
@@ -173,8 +206,8 @@ a {
 
 #feeds {
     grid-area: feeds;
-    height: 250px;
-    padding: 10px;
+    height: 250px !important;
+    padding: 10px !important;
     overflow-y: scroll;
 }
 
@@ -210,8 +243,8 @@ a {
 
 #bookmark {
     grid-area: bookmark;
-    height: 250px;
-    padding: 10px;
+    height: 250px !important;
+    padding: 10px !important;
 }
 
 #bookmark section.link {
@@ -231,29 +264,77 @@ a {
     width: 100%;
 }
 
-main {
+/*
+
+Configure Page UI
+
+*/
+
+main#configure {
     display: grid;
-    grid-template-areas:
-        "greet greet"
-        "time search"
-        "bookmark feeds";
-    grid-template-columns: 2fr 5fr;
-    grid-gap: 10px;
-    margin: 30px auto auto auto;
-    padding: 10px;
-    width: 85vw;
+    height: 100%;
+    grid-template-areas: "nav panel";
+    grid-template-columns: 250px auto;
 }
 
-main > section {
-    background-color: var(--pallets);
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px 0;
-    min-width: 350px;
+nav#nav {
+    justify-content: right;
+    text-align: right;
+    grid-area: nav;
+    background: var(--pallets);
+    padding-top: 30px;
 }
+
+nav#nav a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+}
+
+nav#nav a:hover, a.selected{
+    background: rgb(32, 110, 121);
+}
+
+section#panel {
+    grid-area: panel;
+    padding: 20px;
+    background: var(--bg);
+    padding-top: 40px;
+}
+
+section#panel article.config {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 150px auto;
+}
+
+section#panel article.config div{
+    padding: 10px;
+}
+
+section#panel article.config div input[type=text] {
+    padding: 5px 10px;
+    color: white;
+    background: var(--bg);
+    font-family: "Nunito", sans-serif;
+    outline: 0;
+    border-color: white;
+    border-style: solid;
+}
+
+section#panel article.config div input[type=text]:focus {
+    background-color: white;
+    color: var(--bg);
+}
+/*
+
+Responsiveness
+
+*/
 
 @media only screen and (max-width: 800px) {
-    main {
+    main#display-box {
         grid-template-areas:
             "greet"
             "time"
@@ -261,5 +342,21 @@ main > section {
             "bookmark"
             "feeds";
         grid-template-columns: auto;
+    }
+        
+    nav#nav {
+        justify-content: center;
+        text-align: center;
+    }
+
+    main#configure {
+        grid-template-areas: 
+            "nav" 
+            "panel";
+        grid-template-columns: auto;
+        grid-template-rows: 100px auto;
+    }
+    nav#nav a {
+        display: inline-block;
     }
 }
