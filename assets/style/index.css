@@ -45,7 +45,7 @@ body {
 }
 
 a {
-    color: yellow;
+    color: rgb(39, 168, 114);
 }
 
 /*
@@ -54,15 +54,30 @@ Main Display UI
 
 */
 
+.config-cog {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#config-btn {
+    background: url(../images/cog.png) no-repeat;
+    background-size: 50px 50px;
+    display: inherit;
+    filter: brightness(0) invert(1);
+    height: 50px;
+    width: 50px;
+}
+
 main#display-box {
-    display: none;
+    display: grid;
     grid-template-areas:
         "greet greet"
         "time search"
         "bookmark feeds";
     grid-template-columns: 2fr 5fr;
     grid-gap: 10px;
-    margin: 30px auto auto auto;
+    margin: 0 auto;
     padding: 10px;
     width: 85vw;
 }
@@ -99,6 +114,7 @@ main#display-box > section {
 #greet {
     background: none !important;
     border: none;
+    margin-top: 30px;
     grid-area: greet;
     justify-content: left !important;
     text-align: left !important;
@@ -271,7 +287,7 @@ Configure Page UI
 */
 
 main#configure {
-    display: grid;
+    display: none;
     height: 100%;
     grid-template-areas: "nav panel";
     grid-template-columns: 250px auto;
@@ -292,7 +308,7 @@ nav#nav a{
     padding: 10px 10px;
 }
 
-nav#nav a:hover, a.selected{
+nav#nav a:hover, nav#nav a:focus, a.selected{
     background: rgb(32, 110, 121);
 }
 
@@ -327,6 +343,29 @@ section#panel article.config div input[type=text]:focus {
     background-color: white;
     color: var(--bg);
 }
+
+section#panel article.config div.save {
+    text-align: right;
+}
+
+section#panel input.config-btn {
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    padding: 5px 10px;
+    color: white;
+    background: var(--bg);
+    font-family: "Nunito", sans-serif;
+    outline: 0;
+    border-color: white;
+    border-style: solid;
+}
+
+section#panel input.config-btn:hover, 
+section#panel input.config-btn:focus {
+    background: white;
+    color: var(--bg);
+}
+
 /*
 
 Responsiveness
