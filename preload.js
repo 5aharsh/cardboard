@@ -64,7 +64,7 @@ const appInit = ()=>{
     if(ls.getItem("init")==undefined){
         console.log("Initialization setup...");
         ls.setItem("init", true)
-        ls.setItem("username", "Saharsh")
+        ls.setItem("username", "")
         ls.setItem("darkmode", true)
         console.log("Initialization setup complete.");
     }

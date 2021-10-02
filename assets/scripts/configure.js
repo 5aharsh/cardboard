@@ -1,6 +1,3 @@
-const ls = localStorage
-
-
 var false_anchors = document.querySelectorAll(".false-anchor")      // false click anchor
 
 const anchorHandle = (e)=>{
@@ -19,6 +16,9 @@ var darkmode = document.getElementById("dark-mode")
 var save_config = document.getElementById("save-config")
 var close_config = document.getElementById("close-config")
 
+// DOM magicks
+var name_display = document.getElementById("user-name")
+
 // load data from localstorage
 username.value = ls.getItem("username")
 darkmode.checked = JSON.parse(ls.getItem("darkmode").toLowerCase())
@@ -28,6 +28,12 @@ save_config.onclick = (e)=>{
     ls.setItem("username", username.value)
     ls.setItem("darkmode", darkmode.checked)
     console.log(username.value, darkmode.checked);
+
+    // set stuffs
+    name_display.innerText = ls.getItem("username")
+
+    save_config.value = "Saved!"
+    setTimeout(()=>{save_config.value = "Save"}, 2000)
 }
 
 close_config.onclick = (e)=>{
